@@ -1,5 +1,6 @@
 {
     "name": "Make Me Santa",
+    "short_name": "Make Me Santa",
     "description": "Make Me Santa is a fun and easy to use app that allows you to add Santa hats to your photos. You can also add a beard, a mustache, and a pair of glasses",
     "start_url": "/",
     "display": "standalone",
