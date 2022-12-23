@@ -71,6 +71,11 @@
                 document.getElementById('firebaseui-auth-container').style.display = 'none';
             }
         }
+        document.getElementById('logout').addEventListener('click', () => {
+            auth.signOut().then(() => {
+                location.reload();
+            });
+        });
       </script>
     <script src="index.js"></script>
 </html>
