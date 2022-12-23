@@ -68,3 +68,15 @@ div#images {
     width: 100vw;
     height: 50px;
 }
+
+#firebaseui-auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+}

@@ -30,6 +30,7 @@ document.getElementById('upload').addEventListener('click', function (e) {
         var file = all_files[i];
         var formData = new FormData();
         formData.append('file', file);
+        formData.append('uid', uid);
         fetch('/upload', {
             method: 'POST',
             body: formData

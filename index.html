@@ -17,7 +17,7 @@
                 <input type="file" id="file" name="file" accept="image/*" multiple>
             </span>
         </nav>
-        
+        <div id="firebaseui-auth-container"></div>
         <div id="images"></div>
         <div id="upload">
             <button id="upload-btn">UPLOAD AND GENERATE IMAGES</button>
@@ -30,5 +30,46 @@
             .catch((err) => console.log('service worker not registered', err));
         }
     </script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.2/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.2/firebase-ui-auth.css" />
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        //authui - google, phone, email
+        import { getAuth, GoogleAuthProvider, PhoneAuthProvider, EmailAuthProvider } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+        
+        const firebaseConfig = {
+          apiKey: "AIzaSyA_MOCUmHzANkFfOrXHBFwSapqgZKT87yY",
+          authDomain: "make-me-santa.firebaseapp.com",
+          projectId: "make-me-santa",
+          storageBucket: "make-me-santa.appspot.com",
+          messagingSenderId: "998945360998",
+          appId: "1:998945360998:web:dc2abe09adbeef9a88b1a7",
+          measurementId: "G-57VD7FVYWY"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+        if (auth.currentUser) {
+            const uid = auth.currentUser.uid;
+        } else {
+            uiconfig = {
+                signInOptions: [
+                    GoogleAuthProvider.PROVIDER_ID,
+                    PhoneAuthProvider.PROVIDER_ID,
+                    EmailAuthProvider.PROVIDER_ID
+                ],
+                signInSuccessUrl: '/'
+            }
+            const ui = new firebaseui.auth.AuthUI(auth);
+            document.getElementById('firebaseui-auth-container').style.display = 'block';
+            ui.start('#firebaseui-auth-container', uiconfig);
+            if (auth.currentUser) {
+                const uid = auth.currentUser.uid;
+                document.getElementById('firebaseui-auth-container').style.display = 'none';
+            }
+        }
+      </script>
     <script src="index.js"></script>
 </html>
