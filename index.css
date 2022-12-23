@@ -72,6 +72,7 @@ div#images {
 #firebaseui-auth-container {
     display: flex;
     justify-content: center;
+    background-color: antiquewhite;
     align-items: center;
     height: 100vh;
     position: absolute;
