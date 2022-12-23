@@ -57,7 +57,7 @@
             const uid = auth.currentUser.uid;
         } else {
             const ui = new firebaseui.auth.AuthUI(auth);
-            document.getElementById('firebaseui-auth-container').style.display = 'block';
+            document.getElementById('firebaseui-auth-container').style.display = 'flex';
             ui.start('#firebaseui-auth-container', {
                 signInOptions: [
                     GoogleAuthProvider.PROVIDER_ID,

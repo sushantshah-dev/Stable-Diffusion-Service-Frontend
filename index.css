@@ -70,7 +70,7 @@ div#images {
 }
 
 #firebaseui-auth-container {
-    display: flex;
+    display: none;
     justify-content: center;
     background-color: antiquewhite;
     align-items: center;
