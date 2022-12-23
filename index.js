@@ -41,3 +41,11 @@ document.getElementById('upload').addEventListener('click', function (e) {
         });
     }
 });
+
+document.getElementById('logout').addEventListener('click', function (e) {
+    auth.signOut().then(function () {
+        window.location.href = '/';
+    }).catch(function (error) {
+        console.log(error);
+    });
+});
